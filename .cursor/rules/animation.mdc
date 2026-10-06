@@ -1,0 +1,20 @@
+---
+description: motion and 3d rules
+globs: ["**/*"]
+---
+
+Use animation with intent.
+
+Motion:
+- use Motion for UI interactions, hover states, modals, reveals, page entry
+- use GSAP for scroll choreography, timelines, pinning, parallax, section reveals
+- use Lenis for smooth scrolling
+- use React Three Fiber + Drei for 3D hero sections and depth effects
+
+Rules:
+- do not animate everything
+- prefer layered motion over simple fade/slide defaults
+- avoid childish or flashy effects
+- use motion to increase perceived value
+- keep animations smooth and premium
+- on landing pages, include at least one memorable motion sequence

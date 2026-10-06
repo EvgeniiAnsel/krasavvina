@@ -1,0 +1,23 @@
+---
+description: project structure and implementation
+globs: ["**/*"]
+---
+
+Keep the codebase organized.
+
+Use this structure:
+- components for reusable UI blocks
+- sections for page sections
+- data for static content
+- lib for helpers
+- hooks for custom hooks
+- assets for media
+
+Rules:
+- split large pages into sections
+- keep components small and readable
+- use typed data objects for content
+- avoid hardcoding repeated values
+- keep animations isolated and reusable
+- keep the main page composition clean
+- production-ready code only

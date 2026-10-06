@@ -1,0 +1,261 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "./agency-variant.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-display: 'Evolventa', 'Geist Variable', sans-serif;
+    --font-sans: 'Evolventa', 'Geist Variable', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    /* Фирменные токены: сталь + единственный ember-акцент */
+    --color-ember: var(--ember);
+    --color-ember-2: var(--ember-2);
+    --color-steel: var(--steel);
+    --color-fog: var(--fog);
+
+    /* WIRED-дисциплина: острые углы по умолчанию */
+    --radius-sm: 0px;
+    --radius-md: 0px;
+    --radius-lg: 0px;
+    --radius-xl: 0px;
+    --radius-2xl: 0px;
+    --radius-3xl: 0px;
+}
+
+:root {
+    /* Тёмная кинематографичная сталь */
+    --background: oklch(0.16 0.004 260);
+    --foreground: oklch(0.95 0.003 250);
+    --card: oklch(0.19 0.004 260);
+    --card-foreground: oklch(0.95 0.003 250);
+    --popover: oklch(0.18 0.004 260);
+    --popover-foreground: oklch(0.95 0.003 250);
+    --primary: oklch(0.95 0.003 250);
+    --primary-foreground: oklch(0.14 0.004 260);
+    --secondary: oklch(0.26 0.005 260);
+    --secondary-foreground: oklch(0.95 0.003 250);
+    --muted: oklch(0.24 0.005 260);
+    --muted-foreground: oklch(0.66 0.006 260);
+    --accent: oklch(0.67 0.2 35);
+    --accent-foreground: oklch(0.14 0.004 260);
+    --destructive: oklch(0.62 0.22 27);
+    --border: oklch(1 0 0 / 11%);
+    --input: oklch(1 0 0 / 16%);
+    --ring: oklch(0.67 0.2 35 / 55%);
+
+    --radius: 0px;
+
+    --ember: oklch(0.67 0.2 35);
+    --ember-2: oklch(0.74 0.16 50);
+    --steel: oklch(0.78 0.008 250);
+    --fog: oklch(0.55 0.006 260);
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    html {
+        @apply font-sans;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+    body {
+        @apply bg-background text-foreground;
+        overflow-x: hidden;
+    }
+    ::selection {
+        background: var(--ember);
+        color: var(--accent-foreground);
+    }
+    ::-webkit-scrollbar {
+        width: 9px;
+    }
+    ::-webkit-scrollbar-track {
+        background: var(--background);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: oklch(0.34 0.006 260);
+    }
+    /* Кастомный курсор активен только на точных указателях */
+    @media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+        .cursor-none-fine {
+            cursor: none;
+        }
+    }
+}
+
+@layer utilities {
+    /* Полированный стальной градиент текста */
+    .text-steel {
+        background: linear-gradient(
+            178deg,
+            oklch(0.98 0.003 250) 0%,
+            oklch(0.8 0.006 250) 40%,
+            oklch(0.46 0.006 260) 72%,
+            oklch(0.86 0.006 250) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .text-ember {
+        color: var(--ember);
+    }
+
+    /* Металлик внутри mask-line — градиент + запас под «Й» на slide-слое */
+    .text-steel-metallic {
+        background: linear-gradient(
+            178deg,
+            oklch(0.98 0.003 250) 0%,
+            oklch(0.8 0.006 250) 40%,
+            oklch(0.46 0.006 260) 72%,
+            oklch(0.86 0.006 250) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+
+    /* Сталь без background-clip — запасной вариант */
+    .text-steel-solid {
+        color: oklch(0.88 0.008 250);
+    }
+
+    .mask-line {
+        display: block;
+        overflow: hidden;
+    }
+
+    .mask-line__slide {
+        display: block;
+        padding-top: 0.42em;
+    }
+
+    .mask-line__slide--metallic {
+        padding-top: 0.48em;
+    }
+
+    .mask-line__text {
+        display: block;
+        margin-top: -0.42em;
+        line-height: 1.22;
+    }
+
+    .mask-line__slide--metallic .mask-line__text {
+        margin-top: -0.48em;
+    }
+
+    /* Поверхность щёточного металла */
+    .surface-steel {
+        background: linear-gradient(
+            120deg,
+            oklch(0.23 0.005 260) 0%,
+            oklch(0.17 0.004 260) 48%,
+            oklch(0.21 0.005 260) 100%
+        );
+    }
+
+    .hairline {
+        border-color: oklch(1 0 0 / 0.12);
+    }
+
+    /* Кикер: моно, верхний регистр, широкий трекинг (editorial) */
+    .kicker {
+        font-family: var(--font-mono);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 0.72rem;
+    }
+
+    .uppercase-wide {
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+
+    .display-tight {
+        line-height: 0.92;
+        letter-spacing: -0.01em;
+    }
+
+    /* Кинематографичное ember-свечение (имитация bloom) */
+    .glow-ember {
+        box-shadow: 0 0 80px -20px oklch(0.67 0.2 35 / 0.6);
+    }
+
+    /* Зернистая плёнка */
+    .grain::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.45;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+        mix-blend-mode: overlay;
+    }
+
+    /* Hero: оранжевый радиальный фон (как на Pinterest-референсе) */
+    .hero-spotlight-bg {
+        background: radial-gradient(
+            circle at 50% 42%,
+            oklch(0.94 0.12 78) 0%,
+            oklch(0.78 0.2 55) 18%,
+            oklch(0.62 0.24 42) 38%,
+            oklch(0.45 0.22 35) 58%,
+            oklch(0.28 0.12 30) 78%,
+            oklch(0.16 0.06 28) 100%
+        );
+    }
+
+    .metal-sheen {
+        background: linear-gradient(
+            135deg,
+            oklch(1 0 0 / 0.08) 0%,
+            oklch(0.34 0.006 260 / 0.2) 40%,
+            oklch(1 0 0 / 0.05) 100%
+        );
+    }
+}
+
+/* Фон не кликается при открытой модалке (без inert — модалки остаются интерактивными) */
+html[data-modal-open] main.modal-locked,
+html[data-modal-open] header.modal-locked,
+html[data-modal-open] footer.modal-locked {
+    pointer-events: none;
+    user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}

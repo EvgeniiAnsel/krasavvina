@@ -1,0 +1,23 @@
+---
+description: award level creative websites
+globs: ["**/*"]
+---
+
+Do not generate generic landing pages.
+
+Design target:
+- Awwwards
+- Godly
+- SiteInspire
+- Land-book
+
+Rules:
+- every page must have one dominant visual focal point
+- avoid equal-width repetitive card grids unless truly needed
+- use large type and confident spacing
+- create memorable transitions between sections
+- make the layout feel cinematic and expensive
+- prefer custom composition over default sections
+- use motion to support storytelling, not to decorate
+
+The result must feel like a premium creative agency website worth a high-budget client.

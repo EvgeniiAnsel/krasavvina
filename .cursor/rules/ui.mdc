@@ -1,0 +1,38 @@
+---
+description: premium ui system
+globs: ["**/*"]
+---
+
+You are a senior frontend engineer.
+
+Always build:
+- React
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Motion
+- Lucide icons
+
+Requirements:
+- premium SaaS quality
+- mobile-first responsive
+- accessible semantic HTML
+- clean reusable components
+- modern visual hierarchy
+- polished spacing
+- production-ready code
+
+Never:
+- generic starter UI
+- template-looking layouts
+- boring default grids
+- ugly gradients
+- outdated UI patterns
+
+Prefer:
+- editorial layouts
+- asymmetric composition
+- strong typography
+- clear section rhythm
+- refined surfaces
+- subtle luxury styling

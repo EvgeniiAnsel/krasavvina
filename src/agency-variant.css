@@ -1,0 +1,50 @@
+/* Стили для перенесённых блоков из C:\Users\p-b-j\Desktop\krasavvina (без изменений в компонентах) */
+
+@theme inline {
+  --color-ink: oklch(0.07 0.004 60);
+  --color-ink-soft: oklch(0.11 0.004 60);
+  --color-bone: oklch(0.96 0.01 80);
+}
+
+@font-face {
+  font-family: "Evolventa";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Evolventa-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Evolventa";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/Evolventa-Bold.woff") format("woff");
+}
+
+.agency-variant-root .font-display {
+  font-family: "Evolventa", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.agency-variant-root .font-evolventa {
+  font-family: "Evolventa", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+}
+
+.agency-variant-root.agency-bg {
+  background:
+    radial-gradient(120% 90% at 50% -10%, rgba(255, 120, 60, 0.06), transparent 55%),
+    radial-gradient(80% 60% at 100% 0%, rgba(255, 90, 40, 0.04), transparent 60%),
+    #0a0a0c;
+}
+
+.agency-variant-root .grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.agency-variant-root ::selection {
+  background: oklch(0.68 0.2 38);
+  color: oklch(0.07 0.004 60);
+}
